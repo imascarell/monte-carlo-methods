@@ -12,6 +12,17 @@ Study and implementation of Monte Carlo integration and its numerical behaviour:
 - Comparison with deterministic quadrature (rectangle rule) in 1D and 2D; behaviour in higher dimension.
 - Application (report): pricing a **European call option** by simulation, validated against the **Black–Scholes** closed form, with importance sampling for variance reduction on out-of-the-money strikes.
 
+## Results
+
+| Experiment | Result |
+|---|---|
+| European call option (S0 = 100, K = 105, r = 5%, σ = 20%, T = 1y), n = 100,000 paths | Monte Carlo €8.0062 vs. Black–Scholes €8.0214 |
+| Absolute pricing error | €0.0151, inside the 95% confidence interval (±€0.0864) |
+| Importance sampling (normal proposal shifted towards the strike) | Relative variance 1.66 → 1.19 (~28% reduction) |
+| Convergence | Empirical error decays as O(n^-1/2), tested for n = 10^2 to 10^6 |
+
+Full derivations, figures and discussion in `report/informe.pdf` (Spanish).
+
 ## Files
 
 - `monte_carlo.ipynb` — implementations and experiments (exercises 1–20).
